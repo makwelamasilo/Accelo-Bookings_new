@@ -13,5 +13,11 @@ namespace Accelo_Booking
         {
 
         }
+
+        protected void btnSignIn_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Cookies["Username"].Value = txtUsername.Text;
+            Response.Redirect("DashboardPage.aspx");
+        }
     }
 }

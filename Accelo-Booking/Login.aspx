@@ -59,10 +59,10 @@
 </head>
 <body style="height: 356px">
     <form id="form1" runat="server">
-        <div class="auto-style12" style="background-image: url('Background/blur.png'); height: 753px; width: 1587px;">
-            <asp:ImageButton ID="ImageButton1" runat="server" CssClass="auto-style10" ForeColor="White" ImageUrl="~/Icons/Sign In.png" />
+        <div class="auto-style12" style="background-image: url('Background/173782.jpg'); height: 753px; width: 1587px;">
+            <asp:ImageButton ID="btnSignIn" runat="server" CssClass="auto-style10" ForeColor="White" ImageUrl="~/Icons/Sign In.png" OnClick="btnSignIn_Click" />
             <asp:TextBox ID="TextBox1" runat="server" BorderStyle="Outset" CssClass="auto-style9"></asp:TextBox>
-            <asp:TextBox ID="TextBox2" runat="server" BorderStyle="Outset" CssClass="auto-style8"></asp:TextBox>
+            <asp:TextBox ID="txtUsername" runat="server" BorderStyle="Outset" CssClass="auto-style8"></asp:TextBox>
             <asp:Label ID="Label1" runat="server" CssClass="auto-style4" Font-Size="X-Large" ForeColor="White" style="z-index: 1" Text="Username:"></asp:Label>
             <asp:Label ID="Label2" runat="server" CssClass="auto-style3" Font-Size="X-Large" ForeColor="White" Text="Password:"></asp:Label>
             <asp:Image ID="Image1" runat="server" CssClass="auto-style13" ImageUrl="~/Icons/icons8-account-100.png" />

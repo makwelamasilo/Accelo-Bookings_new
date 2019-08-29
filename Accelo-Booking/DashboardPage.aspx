@@ -73,6 +73,44 @@
             left: 240px;
             z-index: 1;
         }
+        .auto-style12 {
+            position: absolute;
+            top: 311px;
+            left: 133px;
+            z-index: 1;
+        }
+        .auto-style13 {
+            position: absolute;
+            top: 341px;
+            left: 29px;
+            z-index: 1;
+        }
+        .auto-style14 {
+            position: absolute;
+            top: 592px;
+            left: 175px;
+            z-index: 1;
+        }
+        .auto-style15 {
+            width: 422px;
+            height: 210px;
+            position: absolute;
+            top: 370px;
+            left: 19px;
+            z-index: 1;
+        }
+        .auto-style16 {
+            margin-left: 0px;
+            margin-top: 2px;
+        }
+        .auto-style19 {
+            width: 314px;
+            height: 366px;
+            position: absolute;
+            top: 61px;
+            left: 551px;
+            z-index: 1;
+        }
     </style>
 </head>
 <body style="height: 760px; width: 1589px; margin-top: 0px;">
@@ -86,7 +124,7 @@
                     <asp:Label ID="Label1" runat="server" CssClass="auto-style4" Font-Names="Alien Encounters" ForeColor="White" Text="ACCELO-BOOKING"></asp:Label>
                 </asp:Panel>
                 <asp:ImageButton ID="btnMakeBooking" runat="server" CssClass="auto-style5" ImageUrl="~/Icons/MakeBooking.png" OnClick="btnMakeBooking_Click" style="z-index: 2" />
-                <asp:ImageButton ID="btnCancelBooking" runat="server" CssClass="auto-style6" ImageUrl="~/Icons/cancelBooking.png" style="z-index: 2" />
+                <asp:ImageButton ID="btnCancelBooking" runat="server" CssClass="auto-style6" ImageUrl="~/Icons/cancelBooking.png" OnClick="btnCancelBooking_Click" style="z-index: 2" />
                 <asp:ImageButton ID="btnOverview" runat="server" CssClass="auto-style8" ImageUrl="~/Icons/btnOverview.png" OnClick="btnOverview_Click" />
             </asp:Panel>
             <br />
@@ -97,6 +135,140 @@
             <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Panel ID="Panel4" runat="server" BackImageUrl="~/Background/images.jpg" CssClass="auto-style10">
+                <asp:MultiView ID="MultiView1" runat="server">
+                    <asp:View ID="View1" runat="server">
+                        <asp:Calendar ID="DateOfBooking" runat="server" BackColor="#333333" BorderColor="Black" BorderStyle="Outset" BorderWidth="5px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="221px" NextPrevFormat="FullMonth" Width="426px" CssClass="auto-style16">
+                            <DayHeaderStyle BackColor="Black" Font-Bold="True" Font-Size="8pt" ForeColor="White" />
+                            <DayStyle BackColor="#333333" ForeColor="White" />
+                            <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#999999" VerticalAlign="Bottom" />
+                            <OtherMonthDayStyle ForeColor="#999999" />
+                            <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+                            <TitleStyle BackColor="#333333" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="12pt" ForeColor="White" />
+                            <TodayDayStyle BackColor="Black" ForeColor="Lime" />
+                        </asp:Calendar>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="Label3" runat="server" Font-Bold="True" ForeColor="White" Text="Start Time:"></asp:Label>
+                        <asp:DropDownList ID="StartTime" runat="server" BackColor="#333333" ForeColor="White">
+                            <asp:ListItem>--:--</asp:ListItem>
+                            <asp:ListItem>06:00</asp:ListItem>
+                            <asp:ListItem>06:30</asp:ListItem>
+                            <asp:ListItem>07:00</asp:ListItem>
+                            <asp:ListItem>07:30</asp:ListItem>
+                            <asp:ListItem>08:00</asp:ListItem>
+                            <asp:ListItem>08:30</asp:ListItem>
+                            <asp:ListItem>09:00</asp:ListItem>
+                            <asp:ListItem>09:30</asp:ListItem>
+                            <asp:ListItem>10:00</asp:ListItem>
+                            <asp:ListItem>10:30</asp:ListItem>
+                            <asp:ListItem>11:00</asp:ListItem>
+                            <asp:ListItem>11:30</asp:ListItem>
+                            <asp:ListItem>12:00</asp:ListItem>
+                            <asp:ListItem>12:30</asp:ListItem>
+                            <asp:ListItem>13:00</asp:ListItem>
+                            <asp:ListItem>13:30</asp:ListItem>
+                            <asp:ListItem>14:00</asp:ListItem>
+                            <asp:ListItem>14:30</asp:ListItem>
+                            <asp:ListItem>15:00</asp:ListItem>
+                            <asp:ListItem>15:30</asp:ListItem>
+                            <asp:ListItem>16:00</asp:ListItem>
+                            <asp:ListItem>16:30</asp:ListItem>
+                            <asp:ListItem>17:00</asp:ListItem>
+                            <asp:ListItem>17:30</asp:ListItem>
+                            <asp:ListItem>18:00</asp:ListItem>
+                            <asp:ListItem>18:30</asp:ListItem>
+                            <asp:ListItem>19:00</asp:ListItem>
+                            <asp:ListItem>19:30</asp:ListItem>
+                            <asp:ListItem>20:00</asp:ListItem>
+                            <asp:ListItem>20:30</asp:ListItem>
+                            <asp:ListItem>21:00</asp:ListItem>
+                            <asp:ListItem>21:30</asp:ListItem>
+                        </asp:DropDownList>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="Label2" runat="server" Font-Bold="True" ForeColor="White" Text="End Time:"></asp:Label>
+                        <asp:DropDownList ID="EndTime" runat="server" BackColor="#333333" ForeColor="White">
+                            <asp:ListItem>--:--</asp:ListItem>
+                            <asp:ListItem>06:30</asp:ListItem>
+                            <asp:ListItem>07:00</asp:ListItem>
+                            <asp:ListItem>07:30</asp:ListItem>
+                            <asp:ListItem>08:00</asp:ListItem>
+                            <asp:ListItem>08:30</asp:ListItem>
+                            <asp:ListItem>09:00</asp:ListItem>
+                            <asp:ListItem>09:30</asp:ListItem>
+                            <asp:ListItem>10:00</asp:ListItem>
+                            <asp:ListItem>10:30</asp:ListItem>
+                            <asp:ListItem>11:00</asp:ListItem>
+                            <asp:ListItem>11:30</asp:ListItem>
+                            <asp:ListItem>12:00</asp:ListItem>
+                            <asp:ListItem>12:30</asp:ListItem>
+                            <asp:ListItem>13:00</asp:ListItem>
+                            <asp:ListItem>13:30</asp:ListItem>
+                            <asp:ListItem>14:00</asp:ListItem>
+                            <asp:ListItem>14:30</asp:ListItem>
+                            <asp:ListItem>15:00</asp:ListItem>
+                            <asp:ListItem>15:30</asp:ListItem>
+                            <asp:ListItem>16:00</asp:ListItem>
+                            <asp:ListItem>16:30</asp:ListItem>
+                            <asp:ListItem>17:00</asp:ListItem>
+                            <asp:ListItem>17:30</asp:ListItem>
+                            <asp:ListItem>18:00</asp:ListItem>
+                            <asp:ListItem>18:30</asp:ListItem>
+                            <asp:ListItem>19:00</asp:ListItem>
+                            <asp:ListItem>19:30</asp:ListItem>
+                            <asp:ListItem>20:00</asp:ListItem>
+                            <asp:ListItem>20:30</asp:ListItem>
+                            <asp:ListItem>21:00</asp:ListItem>
+                            <asp:ListItem>21:30</asp:ListItem>
+                            <asp:ListItem>22:00</asp:ListItem>
+                        </asp:DropDownList>
+                        <br />
+                        <asp:Label ID="lblAvailability" runat="server" CssClass="auto-style13" Font-Bold="True" ForeColor="White" Text="Select Court:" Visible="False"></asp:Label>
+                        <br />
+                        <asp:Button ID="btnCheckCourtAvailability" runat="server" BackColor="#333333" BorderColor="Black" BorderStyle="Solid" Font-Bold="True" ForeColor="White" OnClick="btnCheckCourtAvailability_Click" Text="Check Available" CssClass="auto-style12" />
+                        <asp:RadioButtonList ID="AvailableCourts" runat="server" BackColor="#333333" BorderColor="Black" BorderStyle="Solid" ForeColor="White" CssClass="auto-style15" Visible="False">
+                            <asp:ListItem>Court 1</asp:ListItem>
+                            <asp:ListItem>Court 2</asp:ListItem>
+                            <asp:ListItem>Court 3</asp:ListItem>
+                            <asp:ListItem>Court 4</asp:ListItem>
+                            <asp:ListItem>Court 5</asp:ListItem>
+                            <asp:ListItem>Court 6</asp:ListItem>
+                            <asp:ListItem>Court 7</asp:ListItem>
+                            <asp:ListItem>Court 8</asp:ListItem>
+                        </asp:RadioButtonList>
+                        <br />
+                        <br />
+                        <br />
+                        <asp:Button ID="btnBook" runat="server" BackColor="#333333" BorderColor="Black" BorderStyle="Solid" Font-Bold="True" ForeColor="White" OnClick="btnBook_Click1" Text="Book" Width="87px" CssClass="auto-style14" />
+                        <asp:ListBox ID="Feedback" runat="server" CssClass="auto-style19" Visible="False"></asp:ListBox>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                    </asp:View>
+                    <asp:View ID="View2" runat="server">
+                        <asp:Panel ID="Panel5" runat="server">
+                            <asp:GridView ID="GridView2" runat="server" ForeColor="White">
+                                <Columns>
+                                    <asp:CheckBoxField Text="Select booking to be cancelled" />
+                                </Columns>
+                            </asp:GridView>
+                            <br />
+                            <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click1" Text="Cancel Booking" BackColor="#333333" BorderColor="Black" BorderStyle="Solid" ForeColor="White" />
+                            <br />
+                        </asp:Panel>
+                    </asp:View>
+                    <asp:View ID="View3" runat="server">
+                    </asp:View>
+                </asp:MultiView>
             </asp:Panel>
         </div>
     </form>
