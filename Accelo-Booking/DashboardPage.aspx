@@ -153,7 +153,7 @@
             <asp:Panel ID="Panel4" runat="server" BackImageUrl="~/Background/images.jpg" CssClass="auto-style10">
                 <asp:MultiView ID="MultiView1" runat="server">
                     <asp:View ID="View1" runat="server">
-                        <asp:Calendar ID="DateOfBooking" runat="server" BackColor="#333333" BorderColor="Black" BorderStyle="Outset" BorderWidth="5px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="221px" NextPrevFormat="FullMonth" Width="426px" CssClass="auto-style16">
+                        <asp:Calendar ID="DateOfBooking" runat="server" BackColor="#333333" BorderColor="Black" BorderStyle="Outset" BorderWidth="5px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="221px" NextPrevFormat="FullMonth" Width="426px" CssClass="auto-style16" OnDayRender="DateOfBooking_DayRender">
                             <DayHeaderStyle BackColor="Black" Font-Bold="True" Font-Size="8pt" ForeColor="White" />
                             <DayStyle BackColor="#333333" ForeColor="White" />
                             <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#999999" VerticalAlign="Bottom" />
@@ -165,7 +165,6 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="Label3" runat="server" Font-Bold="True" ForeColor="White" Text="Start Time:"></asp:Label>
                         <asp:DropDownList ID="StartTime" runat="server" BackColor="#333333" ForeColor="White">
-                            <asp:ListItem>--:--</asp:ListItem>
                             <asp:ListItem>06:00</asp:ListItem>
                             <asp:ListItem>06:30</asp:ListItem>
                             <asp:ListItem>07:00</asp:ListItem>
@@ -202,7 +201,6 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="Label2" runat="server" Font-Bold="True" ForeColor="White" Text="End Time:"></asp:Label>
                         <asp:DropDownList ID="EndTime" runat="server" BackColor="#333333" ForeColor="White">
-                            <asp:ListItem>--:--</asp:ListItem>
                             <asp:ListItem>06:30</asp:ListItem>
                             <asp:ListItem>07:00</asp:ListItem>
                             <asp:ListItem>07:30</asp:ListItem>
@@ -237,7 +235,7 @@
                             <asp:ListItem>22:00</asp:ListItem>
                         </asp:DropDownList>
                         <asp:Panel ID="Panel6" runat="server" BackColor="#333333" CssClass="auto-style23">
-                            <asp:Label ID="Feedback" runat="server" Text="Label"></asp:Label>
+                            <asp:Label ID="Feedback" runat="server" Text="Label" ForeColor="White"></asp:Label>
                         </asp:Panel>
                         <br />
                         <asp:Label ID="lblAvailability" runat="server" CssClass="auto-style13" Font-Bold="True" ForeColor="White" Text="Select Court:" Visible="False"></asp:Label>
@@ -268,7 +266,7 @@
                         <br />
                         <br />
                         <br />
-                        <asp:Button ID="btnBook" runat="server" CssClass="auto-style20" OnClick="btnBook_Click" Text="Button" />
+                        <asp:Button ID="btnBook" runat="server" CssClass="auto-style20" OnClick="btnBook_Click" Text="BOOK" BackColor="#333333" BorderColor="Black" BorderStyle="Solid" Font-Bold="True" ForeColor="White" />
                         <br />
                         <br />
                     </asp:View>

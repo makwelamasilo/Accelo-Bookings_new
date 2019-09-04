@@ -53,10 +53,37 @@ namespace Accelo_Booking
 
         protected void btnCheckCourtAvailability_Click(object sender, EventArgs e)
         {
+            lblAvailability.Visible = true;
+            int start = Convert.ToInt32(StartTime.SelectedItem.ToString().Substring(0,2));
+            int end = Convert.ToInt32(EndTime.SelectedItem.ToString().Substring(0, 2));
             start_date = DateOfBooking.SelectedDate.Year + "-" + DateOfBooking.SelectedDate.Month + "-" + DateOfBooking.SelectedDate.Day + " " + StartTime.Text + ":00";
             end_date = DateOfBooking.SelectedDate.Year + "-" + DateOfBooking.SelectedDate.Month + "-" + DateOfBooking.SelectedDate.Day + " " + EndTime.Text + ":00";
-            findAvailableCourts();
-            //AvailableCourts.Visible = true;
+
+            if (username.Substring(0,1) == "C")
+            {
+                if(start >= 17 & start <= 20 & end >= 17 && end <=20)
+                {
+                    if ((end - start) < 2 && (end - start) >= 0)
+                    {
+                        findAvailableCourts();
+                        AvailableCourts.Visible = true;
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('You are only allowed to make a maximum of 3 session/slots during peak hours');</script>");
+                    }
+                }
+                else
+                {
+                    findAvailableCourts();
+                    AvailableCourts.Visible = true;
+                }
+            }
+            else
+            {
+                findAvailableCourts();
+                AvailableCourts.Visible = true;
+            }
         }
 
         private void findAvailableCourts()
@@ -186,7 +213,14 @@ namespace Accelo_Booking
                 }
                 GridView2.DataBind();
             }
-            
+        }
+
+        protected void DateOfBooking_DayRender(object sender, DayRenderEventArgs e)
+        {
+            if (e.Day.Date > DateTime.Now.AddDays(14))
+            {
+                e.Day.IsSelectable = false;
+            }
         }
     }
 }
