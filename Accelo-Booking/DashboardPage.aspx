@@ -75,20 +75,16 @@
         }
         .auto-style12 {
             position: absolute;
-            top: 311px;
+            top: 302px;
             left: 133px;
             z-index: 1;
+            width: 160px;
+            height: 35px;
         }
         .auto-style13 {
             position: absolute;
             top: 341px;
             left: 29px;
-            z-index: 1;
-        }
-        .auto-style14 {
-            position: absolute;
-            top: 592px;
-            left: 175px;
             z-index: 1;
         }
         .auto-style15 {
@@ -103,12 +99,30 @@
             margin-left: 0px;
             margin-top: 2px;
         }
-        .auto-style19 {
-            width: 314px;
-            height: 366px;
+        .auto-style20 {
             position: absolute;
-            top: 61px;
-            left: 551px;
+            top: 592px;
+            left: 185px;
+            z-index: 1;
+        }
+        .auto-style21 {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            z-index: 1;
+        }
+        .auto-style22 {
+            position: absolute;
+            top: 16px;
+            left: 104px;
+            z-index: 1;
+        }
+        .auto-style23 {
+            width: 340px;
+            height: 371px;
+            position: absolute;
+            top: 80px;
+            left: 562px;
             z-index: 1;
         }
     </style>
@@ -118,6 +132,8 @@
         <div class="auto-style1">
             <asp:Panel ID="Panel1" runat="server" BackImageUrl="~/Background/12.jpg" CssClass="auto-style9">
                 <asp:Panel ID="Panel2" runat="server" BackImageUrl="~/Background/12.jpg" CssClass="auto-style2">
+                    <asp:Label ID="Label4" runat="server" CssClass="auto-style21" Font-Bold="True" Font-Size="Large" ForeColor="White" Text="Welcome:"></asp:Label>
+                    <asp:Label ID="lblUsername" runat="server" CssClass="auto-style22" ForeColor="White" Text="Label"></asp:Label>
                 </asp:Panel>
                 <asp:Panel ID="Panel3" runat="server" BackImageUrl="~/Background/images.jpg" CssClass="auto-style3" Font-Size="XX-Large">
                     &nbsp;&nbsp;&nbsp;
@@ -220,6 +236,9 @@
                             <asp:ListItem>21:30</asp:ListItem>
                             <asp:ListItem>22:00</asp:ListItem>
                         </asp:DropDownList>
+                        <asp:Panel ID="Panel6" runat="server" BackColor="#333333" CssClass="auto-style23">
+                            <asp:Label ID="Feedback" runat="server" Text="Label"></asp:Label>
+                        </asp:Panel>
                         <br />
                         <asp:Label ID="lblAvailability" runat="server" CssClass="auto-style13" Font-Bold="True" ForeColor="White" Text="Select Court:" Visible="False"></asp:Label>
                         <br />
@@ -237,8 +256,6 @@
                         <br />
                         <br />
                         <br />
-                        <asp:Button ID="btnBook" runat="server" BackColor="#333333" BorderColor="Black" BorderStyle="Solid" Font-Bold="True" ForeColor="White" OnClick="btnBook_Click1" Text="Book" Width="87px" CssClass="auto-style14" />
-                        <asp:ListBox ID="Feedback" runat="server" CssClass="auto-style19" Visible="False"></asp:ListBox>
                         <br />
                         <br />
                         <br />
@@ -251,15 +268,32 @@
                         <br />
                         <br />
                         <br />
+                        <asp:Button ID="btnBook" runat="server" CssClass="auto-style20" OnClick="btnBook_Click" Text="Button" />
                         <br />
                         <br />
                     </asp:View>
                     <asp:View ID="View2" runat="server">
                         <asp:Panel ID="Panel5" runat="server">
-                            <asp:GridView ID="GridView2" runat="server" ForeColor="White">
+                            <asp:GridView ID="GridView2" runat="server" ForeColor="Black" BackImageUrl="~/Background/173782.jpg" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2">
                                 <Columns>
-                                    <asp:CheckBoxField Text="Select booking to be cancelled" />
+                                    <asp:TemplateField>
+                                        <ItemTemplate>
+                                            <asp:CheckBox ID="checkSelect" runat="server" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
                                 </Columns>
+                                <EmptyDataTemplate>
+                                    <asp:CheckBox ID="CheckBox1" runat="server" />
+                                </EmptyDataTemplate>
+                                <FooterStyle BackColor="#CCCCCC" />
+                                <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
+                                <RowStyle BackColor="White" />
+                                <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                <SortedAscendingHeaderStyle BackColor="#808080" />
+                                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                <SortedDescendingHeaderStyle BackColor="#383838" />
                             </asp:GridView>
                             <br />
                             <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click1" Text="Cancel Booking" BackColor="#333333" BorderColor="Black" BorderStyle="Solid" ForeColor="White" />

@@ -15,16 +15,17 @@ namespace Accelo_Booking
         static Int32 booking_id;
         static String start_date;
         static String end_date;
+        static String username;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //con = new SqlConnection("Data Source=localhost;Initial Catalog=accelo-booking_db;Integrated Security=True;");
-            //con = new SqlConnection("server=den1.mysql5.gear.host;uid=accelobooking;pwd=Tt0v4g3c9~~m;database=accelobooking");
-            //con.Open();
             con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\User\\source\\repos\\Accelo-Booking\\Accelo-Booking\\App_Data\\acceloDB.mdf;Integrated Security=True");
             if (!IsPostBack)
             {
                 DateOfBooking.SelectedDate = DateTime.Now.Date;
             }
+            username = Request.Cookies["Username"].Value;
+            GenerateBookingID();
+            lblUsername.Text = username.ToString();
         }
 
         protected void btnOverview_Click(object sender, ImageClickEventArgs e)
@@ -40,6 +41,14 @@ namespace Accelo_Booking
         protected void btnCancelBooking_Click(object sender, ImageClickEventArgs e)
         {
             MultiView1.ActiveViewIndex = 1;
+            con.Open();
+            String myquery = "SELECT * FROM Booking WHERE USERNAME = '"+ username.ToString() +"'";
+            SqlCommand cmd = new SqlCommand(myquery,con);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            GridView2.DataSource = reader;
+            GridView2.DataBind();
+            con.Close();
         }
 
         protected void btnCheckCourtAvailability_Click(object sender, EventArgs e)
@@ -50,34 +59,6 @@ namespace Accelo_Booking
             //AvailableCourts.Visible = true;
         }
 
-        protected void btnBook_Click1(object sender, EventArgs e)
-        {
-            Feedback.Visible = true;
-            try
-            {
-
-                con.Open();
-                string username = Request.Cookies["Username"].Value;
-                GenerateBookingID();
-                String addBooking = "INSERT INTO Booking VALUES(" + booking_id + ",'" + AvailableCourts.SelectedItem.Text + "','" + username.ToString() + ",'" + start_date.ToString() + "','" + end_date.ToString() + "')";
-                SqlCommand cmd1 = new SqlCommand();
-                cmd1.CommandText = addBooking;
-                cmd1.Connection = con;
-                cmd1.ExecuteNonQuery();
-                Response.Write("<script>alert('Booking successfully made!!!');</script>");
-                
-                Feedback.Items.Add("Hey " + username + ",\n\n" + "This is to comfirm that you have successfully booked " + AvailableCourts.Text + "For " + DateOfBooking.SelectedDate.ToLongDateString() + "From " + StartTime.Text + "to "+ EndTime+". Your booking reference is " + booking_id.ToString());
-                //con.Close();
-            }
-            catch (Exception err)
-            {
-                Response.Write("<script>alert('" + err.Message + "');</script>");
-            }
-            finally
-            {
-                con.Close();
-            }
-        }
         private void findAvailableCourts()
         {
             lblAvailability.Visible = true;
@@ -95,7 +76,6 @@ namespace Accelo_Booking
                 da.Fill(ds);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    //RadioButtonList1.Items.Clear();
                     lblAvailability.Text = "Available courts are Given Below";
                     foreach (DataRow dr in ds.Tables[0].Rows)
                     {
@@ -111,7 +91,6 @@ namespace Accelo_Booking
                     lblAvailability.Text = "Available Tables are Given Below";
                 }
                 Response.Write("<script>alert('It works');</script>");
-            //con.Close();
             }
             catch(Exception e)
             {
@@ -121,7 +100,6 @@ namespace Accelo_Booking
             {
                 con.Close();
             }
-            
         }
 
         public void GenerateBookingID()
@@ -143,7 +121,7 @@ namespace Accelo_Booking
                 }
                 else
                 {
-                    String myquery1 = "SELECT MAX(booking_id) FROM Booking";
+                    String myquery1 = "SELECT MAX(BOOKING_ID) FROM Booking";
                     SqlCommand cmd1 = new SqlCommand();
                     cmd1.CommandText = myquery1;
                     cmd1.Connection = con;
@@ -154,12 +132,10 @@ namespace Accelo_Booking
                     booking_id = Convert.ToInt32(ds1.Tables[0].Rows[0][0].ToString());
                     booking_id = booking_id + 1;
                 }
-            //Response.Write("<script>alert('Generation Done');</script>");
-            //con.Close();
             }
-            catch (Exception e)
+            catch(Exception er)
             {
-                Response.Write("<script>alert('" + e.Message + "');</script>");
+                Response.Write("<script>alert('" + er.Message + "');</script>");
             }
             finally
             {
@@ -167,14 +143,50 @@ namespace Accelo_Booking
             }
         }
 
-        protected void btnCancel_Click(object sender, EventArgs e)
+        protected void btnBook_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("MakeBooking", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Booking_ID", booking_id);
+                cmd.Parameters.AddWithValue("@Court_ID", AvailableCourts.SelectedItem.ToString());
+                cmd.Parameters.AddWithValue("@Username", username);
+                cmd.Parameters.AddWithValue("@Start_time", start_date);
+                cmd.Parameters.AddWithValue("@End_time", end_date);
+                cmd.ExecuteNonQuery();
+                Feedback.Visible = true;
+                Response.Write("<script>alert('Booking made!!');</script>");
+                Feedback.Text = ("Hey " + username + ",\n\n" + "This is to comfirm that you have successfully booked " + AvailableCourts.Text + "For " + DateOfBooking.SelectedDate.ToLongDateString() + "From " + StartTime.Text + "to " + EndTime + ". Your booking reference is " + booking_id.ToString());
+            }
+            catch(Exception err)
+            {
+                Response.Write("<script>alert('"+ err.Message+"');</script>");
+            }
+            finally
+            {
+                con.Close();
+            }
         }
 
         protected void btnCancel_Click1(object sender, EventArgs e)
         {
-
+            foreach (GridViewRow row in GridView2.Rows)
+            {
+                CheckBox box = (row.Cells[0].FindControl("checkSelect") as CheckBox);
+                int booking_ID = Convert.ToInt32(row.Cells[1].Text);
+                if(box.Checked)
+                {
+                    con.Open();
+                    string query = "DELETE FROM Booking WHERE BOOKING_ID=" + booking_ID;
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+                GridView2.DataBind();
+            }
+            
         }
     }
 }

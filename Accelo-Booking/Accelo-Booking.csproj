@@ -152,6 +152,7 @@
     <Content Include="Icons\Sign In.png" />
     <Content Include="Icons\signup.png" />
     <Content Include="Login.aspx" />
+    <Content Include="RegistrationEmp.aspx" />
     <Content Include="RegistrationPage.aspx" />
     <Content Include="StartPage.aspx" />
     <Content Include="Web.config" />
@@ -177,6 +178,13 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistrationEmp.aspx.cs">
+      <DependentUpon>RegistrationEmp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrationEmp.aspx.designer.cs">
+      <DependentUpon>RegistrationEmp.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RegistrationPage.aspx.cs">
       <DependentUpon>RegistrationPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

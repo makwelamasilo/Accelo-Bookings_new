@@ -18,14 +18,31 @@
             height: 753px;
             width: 1587px;
             margin-top: 0px;
+            margin-left: 0px;
+        }
+        .auto-style3 {
+            z-index: 1;
+            left: 633px;
+            top: 309px;
+            position: absolute;
+            height: 86px;
+            width: 377px;
+        }
+        .auto-style4 {
+            z-index: 1;
+            left: 635px;
+            top: 515px;
+            position: absolute;
+            height: 82px;
+            width: 376px;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style="height: 753px; background-image: url('Background/background - Copy.jpg'); background-repeat: inherit; width: 1587px;" class="auto-style2">
-            <asp:ImageButton ID="btnSignUp" runat="server" ImageUrl="~/Icons/signup.png" OnClick="btnSignUp_Click" style="z-index: 1; left: 603px; top: 507px; position: absolute; height: 100px; width: 430px" />
-            <asp:ImageButton ID="btnSignIn" runat="server" ImageUrl="~/Icons/Sign In.png" OnClick="btnSignIn_Click" style="z-index: 1; left: 602px; top: 298px; position: absolute; height: 100px; width: 430px" />
+        <div style="background-image: url('Background/12.jpg'); background-repeat: inherit; " class="auto-style2">
+            <asp:ImageButton ID="btnSignUp" runat="server" ImageUrl="~/Icons/signup.png" OnClick="btnSignUp_Click" CssClass="auto-style4" />
+            <asp:ImageButton ID="btnSignIn" runat="server" ImageUrl="~/Icons/Sign In.png" OnClick="btnSignIn_Click" CssClass="auto-style3" />
             <asp:Image ID="Image1" runat="server" CssClass="auto-style1" ImageUrl="~/Background/player.png" />
         </div>
     </form>
