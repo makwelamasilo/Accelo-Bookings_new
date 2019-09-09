@@ -11,26 +11,31 @@ namespace Accelo_Booking
 {
     public partial class DashboardPage : System.Web.UI.Page
     {
-        SqlConnection con;
+        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\User\\source\\repos\\Accelo-Booking\\Accelo-Booking\\App_Data\\acceloDB.mdf;Integrated Security=True");
         static Int32 booking_id;
         static String start_date;
         static String end_date;
         static String username;
         protected void Page_Load(object sender, EventArgs e)
         {
-            con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\User\\source\\repos\\Accelo-Booking\\Accelo-Booking\\App_Data\\acceloDB.mdf;Integrated Security=True");
             if (!IsPostBack)
             {
                 DateOfBooking.SelectedDate = DateTime.Now.Date;
             }
             username = Request.Cookies["Username"].Value;
+            if(username.Substring(0,1) == "A" || username.Substring(0, 1) == "B")
+            {
+                btnRegisterEmp.Visible = true;
+            }
             GenerateBookingID();
-            lblUsername.Text = username.ToString();
+            lblUsername.Text = booking_id.ToString();
+
         }
 
         protected void btnOverview_Click(object sender, ImageClickEventArgs e)
         {
             MultiView1.ActiveViewIndex = 2;
+            viewTodaysBookings();
         }
 
         protected void btnMakeBooking_Click(object sender, ImageClickEventArgs e)
@@ -183,13 +188,14 @@ namespace Accelo_Booking
                 cmd.Parameters.AddWithValue("@Start_time", start_date);
                 cmd.Parameters.AddWithValue("@End_time", end_date);
                 cmd.ExecuteNonQuery();
-                Feedback.Visible = true;
-                Response.Write("<script>alert('Booking made!!');</script>");
-                Feedback.Text = ("Hey " + username + ",\n\n" + "This is to comfirm that you have successfully booked " + AvailableCourts.Text + "For " + DateOfBooking.SelectedDate.ToLongDateString() + "From " + StartTime.Text + "to " + EndTime + ". Your booking reference is " + booking_id.ToString());
+                //Feedback.Visible = true;
+                //string feedback = ("Hey " + username + ",\n\n" + "This is to comfirm that you have successfully booked " + AvailableCourts.Text + "For " + DateOfBooking.SelectedDate.ToLongDateString() + "From " + StartTime.Text + "to " + EndTime + ". Your booking reference is " + booking_id.ToString()).ToString();
+                Response.Write("<script>alert('Your booking was successful');</script>");
+                con.Close();
             }
             catch(Exception err)
             {
-                Response.Write("<script>alert('"+ err.Message+"');</script>");
+                Response.Write("<script>alert('" + err.Message + "');</script>");
             }
             finally
             {
@@ -221,6 +227,41 @@ namespace Accelo_Booking
             {
                 e.Day.IsSelectable = false;
             }
+        }
+
+        protected void btnRegisterEmp_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("EmpRegistration.aspx");
+        }
+
+        public void viewTodaysBookings()
+        {
+            string today = DateOfBooking.TodaysDate.ToShortDateString();
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("showTodaysBookings", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@TodaysDate", today);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                viewBookings.DataSource = reader;
+                viewBookings.DataBind();
+                con.Close();
+            }
+            catch(Exception e)
+            {
+                Response.Write("<script>alert('" + e.Message + "');</script>");
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        protected void btnCheckIn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

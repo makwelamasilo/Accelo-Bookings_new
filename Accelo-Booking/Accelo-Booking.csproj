@@ -122,37 +122,37 @@
     <Content Include="App_Data\acceloDB_log.ldf">
       <DependentUpon>acceloDB.mdf</DependentUpon>
     </Content>
-    <Content Include="Background\090757d73c798deedecd7960aa37488a.jpg" />
-    <Content Include="Background\11.jpg" />
+    <Content Include="Background\background.jpg" />
+    <Content Include="Background\images.jpg" />
+    <Content Include="Court Images\1.jpg" />
+    <Content Include="Background\1.jpg" />
     <Content Include="Background\12 - Copy.jpg" />
     <Content Include="Background\12.jpg" />
     <Content Include="Background\173782.jpg" />
-    <Content Include="Background\ASRC-Background1.jpg" />
-    <Content Include="Background\background - Copy.jpg" />
-    <Content Include="Background\blur.png" />
-    <Content Include="Background\Devonshire-Hall-Squash-Court.jpg" />
-    <Content Include="Background\gray-lines-background.jpg" />
-    <Content Include="Background\images.jpg" />
+    <Content Include="Background\2.jpg" />
+    <Content Include="Background\3.jpg" />
+    <Content Include="Background\4.jpg" />
+    <Content Include="Court Images\2.jpg" />
+    <Content Include="Background\black-metal-grill-texture-x-textured-473647.jpg" />
+    <Content Include="Background\imageshg.jpg" />
+    <Content Include="Background\index.jpg" />
     <Content Include="Background\lines-grey-background_1053-300.jpg" />
     <Content Include="Background\player.png" />
-    <Content Include="Background\semi-transparent-background-png-7.png" />
-    <Content Include="Background\Squash-court-1080x675.jpeg" />
-    <Content Include="Background\squash-court-hard-plaster-500x500.jpg" />
-    <Content Include="Background\System-100_Titel-815.jpg" />
-    <Content Include="Background\transparent-gray-4.png" />
-    <Content Include="Background\WhatsApp-Image-2019-04-09-at-3.46.09-PM.jpeg" />
+    <Content Include="Court Images\3.jpg" />
     <Content Include="DashboardPage.aspx" />
+    <Content Include="EmpRegistration.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Icons\btnOverview.png" />
+    <Content Include="Icons\btnRegister.png" />
     <Content Include="Icons\cancelBooking.png" />
+    <Content Include="Icons\Deafult-Profile-Pitcher.png" />
     <Content Include="Icons\icons8-account-100.png" />
     <Content Include="Icons\icons8-registration-100.png" />
-    <Content Include="Icons\logo.png" />
     <Content Include="Icons\MakeBooking.png" />
+    <Content Include="Icons\mittal.png" />
     <Content Include="Icons\Sign In.png" />
     <Content Include="Icons\signup.png" />
     <Content Include="Login.aspx" />
-    <Content Include="RegistrationEmp.aspx" />
     <Content Include="RegistrationPage.aspx" />
     <Content Include="StartPage.aspx" />
     <Content Include="Web.config" />
@@ -167,6 +167,13 @@
     <Compile Include="DashboardPage.aspx.designer.cs">
       <DependentUpon>DashboardPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EmpRegistration.aspx.cs">
+      <DependentUpon>EmpRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmpRegistration.aspx.designer.cs">
+      <DependentUpon>EmpRegistration.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -178,13 +185,6 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegistrationEmp.aspx.cs">
-      <DependentUpon>RegistrationEmp.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RegistrationEmp.aspx.designer.cs">
-      <DependentUpon>RegistrationEmp.aspx</DependentUpon>
-    </Compile>
     <Compile Include="RegistrationPage.aspx.cs">
       <DependentUpon>RegistrationPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -203,6 +203,9 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\mittalbookings - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\mittalbookings - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
