@@ -122,17 +122,10 @@
     <Content Include="App_Data\acceloDB_log.ldf">
       <DependentUpon>acceloDB.mdf</DependentUpon>
     </Content>
-    <Content Include="Background\leather stitch double stitch carbon fiber 1920x1200 wallpaper_www.miscellaneoushi.com_26.jpg" />
     <Content Include="Background\leather.jpg" />
-    <Content Include="Background\Png.png" />
     <Content Include="Background\squash.jpg" />
-    <Content Include="Background\12 - Copy.jpg" />
     <Content Include="Background\12.jpg" />
-    <Content Include="Background\173782.jpg" />
-    <Content Include="Background\2.jpg" />
     <Content Include="Background\3.jpg" />
-    <Content Include="Background\4.jpg" />
-    <Content Include="Background\index.jpg" />
     <Content Include="Background\player.png" />
     <Content Include="DashboardPage.aspx" />
     <Content Include="EmpRegistration.aspx" />
