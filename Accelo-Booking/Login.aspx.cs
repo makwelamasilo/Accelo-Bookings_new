@@ -11,21 +11,41 @@ namespace Accelo_Booking
 {
     public partial class Login : System.Web.UI.Page
     {
-        //SqlConnection con;
+        SqlConnection con;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //con = new SqlConnection(@"Server=localhost;Database=accelo-booking_db;Uid=root;Pwd=@Makwela98;");
-            ////con = new SqlConnection("accelobooking @den1.mysql3.gear.host:3306");
-            //con.Open();
-
+            con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\User\\source\\repos\\Accelo-Booking\\Accelo-Booking\\App_Data\\acceloDB.mdf;Integrated Security=True");
         }
 
         protected void btnSignIn_Click(object sender, ImageClickEventArgs e)
         {
-            //con.Open();
-            //con.Close();
+            lblWrongCredentials.Visible = true;
+            string username = txtUsername.Text;
             Response.Cookies["Username"].Value = txtUsername.Text;
-            Response.Redirect("DashboardPage.aspx");
+            string password = txtPassword.Text;
+            try
+            {
+                con.Open();
+                string query = "SELECT * FROM Users WHERE USERNAME='" + username + "' and PASSWORD='" + password + "'";
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    Response.Redirect("DashboardPage.aspx");
+                }
+                else
+                {
+                    lblWrongCredentials.Text = "Incorrect username or password";
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
         }
     }
 }

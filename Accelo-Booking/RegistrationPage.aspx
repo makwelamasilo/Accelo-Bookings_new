@@ -182,7 +182,7 @@
 </head>
 <body style="height: 776px; margin-left: 0px; margin-top: 1px; width: 1594px; margin-bottom: 3px;">
     <form id="form1" runat="server">
-        <div class="auto-style1" style="background-image: url('Background/12.jpg')">
+        <div class="auto-style1" style="background-image: url('Background/3.jpg')">
             <asp:Label ID="Label1" runat="server" CssClass="auto-style4" Font-Size="X-Large" ForeColor="White" Text="Last Name:"></asp:Label>
             <asp:Label ID="Label2" runat="server" CssClass="auto-style2" Font-Size="X-Large" ForeColor="White" Text="Email:"></asp:Label>
             <asp:Label ID="Label3" runat="server" CssClass="auto-style3" Font-Size="X-Large" ForeColor="White" Text="First Name:"></asp:Label>
@@ -190,8 +190,8 @@
             <asp:Label ID="Label5" runat="server" CssClass="auto-style6" Font-Size="X-Large" ForeColor="White" Text="Email comfirmation:"></asp:Label>
             <asp:Label ID="Label6" runat="server" CssClass="auto-style7" Font-Size="X-Large" ForeColor="White" Text="Password Comfirmation:"></asp:Label>
             <asp:TextBox ID="txtFName" runat="server" BorderStyle="None" CssClass="auto-style9"></asp:TextBox>
-            <asp:TextBox ID="txtEmail" runat="server" BorderStyle="None" CssClass="auto-style11"></asp:TextBox>
-            <asp:TextBox ID="txtEmailComfirmation" runat="server" BorderStyle="None" CssClass="auto-style8"></asp:TextBox>
+            <asp:TextBox ID="txtEmail" runat="server" BorderStyle="None" CssClass="auto-style11" TextMode="Email"></asp:TextBox>
+            <asp:TextBox ID="txtEmailComfirmation" runat="server" BorderStyle="None" CssClass="auto-style8" TextMode="Email"></asp:TextBox>
             <asp:TextBox ID="txtLName" runat="server" BorderStyle="None" CssClass="auto-style10"></asp:TextBox>
             <asp:ImageButton ID="btnSignUp" runat="server" CssClass="auto-style14" ImageUrl="~/Icons/signup.png" OnClick="btnSignUp_Click" />
             <asp:RequiredFieldValidator ID="FNameValidate" runat="server" ControlToValidate="txtFName" CssClass="auto-style16" ErrorMessage="*" Font-Size="XX-Large" ForeColor="Red"></asp:RequiredFieldValidator>

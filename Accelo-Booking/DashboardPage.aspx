@@ -11,25 +11,25 @@
             width: 1587px;
         }
         .auto-style2 {
-            width: 1361px;
+            width: 1357px;
             height: 48px;
             position: absolute;
             top: 59px;
-            left: 237px;
+            left: 241px;
             z-index: 1;
         }
         .auto-style3 {
-            width: 1359px;
+            width: 1357px;
             height: 62px;
             position: absolute;
             top: -2px;
-            left: 239px;
+            left: 241px;
             z-index: 1;
         }
         .auto-style4 {
             position: absolute;
-            top: 16px;
-            left: 50px;
+            top: 20px;
+            left: 27px;
             z-index: 1;
         }
         .auto-style5 {
@@ -66,11 +66,11 @@
             z-index: 1;
         }
         .auto-style10 {
-            width: 1356px;
-            height: 678px;
+            width: 1353px;
+            height: 674px;
             position: absolute;
-            top: 110px;
-            left: 240px;
+            top: 114px;
+            left: 243px;
             z-index: 1;
         }
         .auto-style12 {
@@ -127,30 +127,30 @@
         }
         .auto-style25 {
             position: absolute;
-            top: 16px;
-            left: 1443px;
+            top: 17px;
+            left: 1486px;
             z-index: 1;
-            width: 125px;
+            width: 87px;
         }
         .auto-style26 {
             position: absolute;
-            top: 5px;
-            left: 1149px;
+            top: 12px;
+            left: 1206px;
             z-index: 1;
-            width: 51px;
-            height: 51px;
+            width: 40px;
+            height: 38px;
         }
     </style>
 </head>
 <body style="height: 760px; width: 1589px; margin-top: 0px;">
     <form id="form1" runat="server">
-        <div class="auto-style1">
+        <div class="auto-style1" style="background-color: #000000">
             <asp:Panel ID="Panel1" runat="server" BackImageUrl="~/Background/12.jpg" CssClass="auto-style9">
                 <asp:Panel ID="Panel2" runat="server" BackImageUrl="~/Background/12.jpg" CssClass="auto-style2">
                     <asp:Label ID="Label4" runat="server" CssClass="auto-style21" Font-Bold="True" Font-Size="Large" ForeColor="White" Text="Welcome:"></asp:Label>
                     <asp:Label ID="lblUsername" runat="server" CssClass="auto-style22" ForeColor="White" Text="Label"></asp:Label>
                 </asp:Panel>
-                <asp:Panel ID="Panel3" runat="server" BackImageUrl="~/Background/images.jpg" CssClass="auto-style3" Font-Size="XX-Large">
+                <asp:Panel ID="Panel3" runat="server" BackImageUrl="~/Background/3.jpg" CssClass="auto-style3" Font-Size="XX-Large" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px">
                     &nbsp;&nbsp;&nbsp;
                     <asp:Label ID="Label1" runat="server" CssClass="auto-style4" Font-Names="Alien Encounters" ForeColor="White" Text="ACCELO-BOOKING"></asp:Label>
                     <asp:Image ID="Image1" runat="server" CssClass="auto-style26" ImageUrl="~/Icons/Deafult-Profile-Pitcher.png" />
@@ -159,7 +159,7 @@
                 <asp:ImageButton ID="btnCancelBooking" runat="server" CssClass="auto-style6" ImageUrl="~/Icons/cancelBooking.png" OnClick="btnCancelBooking_Click" style="z-index: 2" />
                 <asp:ImageButton ID="btnOverview" runat="server" CssClass="auto-style8" ImageUrl="~/Icons/btnOverview.png" OnClick="btnOverview_Click" />
                 <asp:ImageButton ID="btnRegisterEmp" runat="server" CssClass="auto-style24" ImageUrl="~/Icons/btnRegister.png" OnClick="btnRegisterEmp_Click" Visible="False" />
-                <asp:HyperLink ID="HyperLink1" runat="server" CssClass="auto-style25" Font-Bold="True" Font-Size="X-Large" ForeColor="White" NavigateUrl="~/Login.aspx">SIGN OUT</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" runat="server" CssClass="auto-style25" Font-Bold="True" Font-Size="Large" ForeColor="White" NavigateUrl="~/Login.aspx">Log out</asp:HyperLink>
             </asp:Panel>
             <br />
             \<br />
@@ -168,7 +168,7 @@
             <br />
             <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Panel ID="Panel4" runat="server" BackImageUrl="~/Background/images.jpg" CssClass="auto-style10">
+            <asp:Panel ID="Panel4" runat="server" BackImageUrl="~/Background/3.jpg" CssClass="auto-style10">
                 <asp:MultiView ID="MultiView1" runat="server">
                     <asp:View ID="View1" runat="server">
                         <asp:Calendar ID="DateOfBooking" runat="server" BackColor="#333333" BorderColor="Black" BorderStyle="Outset" BorderWidth="5px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="221px" NextPrevFormat="FullMonth" Width="426px" CssClass="auto-style16" OnDayRender="DateOfBooking_DayRender">
@@ -287,7 +287,7 @@
                     </asp:View>
                     <asp:View ID="View2" runat="server">
                         <asp:Panel ID="Panel5" runat="server">
-                            <asp:GridView ID="GridView2" runat="server" ForeColor="Black" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" BackColor="White" GridLines="Horizontal">
+                            <asp:GridView ID="GridView2" runat="server" ForeColor="Black" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" BackColor="White" GridLines="Horizontal" AutoGenerateEditButton="True">
                                 <Columns>
                                     <asp:TemplateField>
                                         <ItemTemplate>

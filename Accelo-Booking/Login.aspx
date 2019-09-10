@@ -78,11 +78,19 @@
             left: 714px;
             z-index: 1;
         }
+        .auto-style19 {
+            width: 480px;
+            height: 443px;
+            position: absolute;
+            top: 123px;
+            left: 573px;
+            z-index: -1;
+        }
     </style>
 </head>
 <body style="height: 753px; width: 1584px; margin-top: 0px;">
     <form id="form1" runat="server">
-        <div class="auto-style12" style="background-image: url('Background/3.jpg'); ">
+        <div class="auto-style12" style="background-image: url('Background/squash.jpg'); ">
             <asp:ImageButton ID="btnSignIn" runat="server" CssClass="auto-style10" ForeColor="White" ImageUrl="~/Icons/Sign In.png" OnClick="btnSignIn_Click" />
             <asp:TextBox ID="txtUsername" runat="server" BorderStyle="None" CssClass="auto-style8"></asp:TextBox>
             <asp:Label ID="Label1" runat="server" CssClass="auto-style4" Font-Size="X-Large" ForeColor="White" style="z-index: 1" Text="Username:"></asp:Label>
@@ -92,6 +100,8 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtUsername" CssClass="auto-style17" ErrorMessage="*" Font-Size="X-Large" ForeColor="Red"></asp:RequiredFieldValidator>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPassword" CssClass="auto-style16" ErrorMessage="*" Font-Size="X-Large" ForeColor="Red"></asp:RequiredFieldValidator>
             <asp:Label ID="lblWrongCredentials" runat="server" CssClass="auto-style18" Font-Bold="False" Font-Size="Large" ForeColor="Red" Text="Wrong Username or password" Visible="False"></asp:Label>
+            <asp:Panel ID="Panel1" runat="server" CssClass="auto-style19">
+            </asp:Panel>
         </div>
     </form>
 </body>

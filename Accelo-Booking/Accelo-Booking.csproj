@@ -122,23 +122,18 @@
     <Content Include="App_Data\acceloDB_log.ldf">
       <DependentUpon>acceloDB.mdf</DependentUpon>
     </Content>
-    <Content Include="Background\background.jpg" />
-    <Content Include="Background\images.jpg" />
-    <Content Include="Court Images\1.jpg" />
-    <Content Include="Background\1.jpg" />
+    <Content Include="Background\leather stitch double stitch carbon fiber 1920x1200 wallpaper_www.miscellaneoushi.com_26.jpg" />
+    <Content Include="Background\leather.jpg" />
+    <Content Include="Background\Png.png" />
+    <Content Include="Background\squash.jpg" />
     <Content Include="Background\12 - Copy.jpg" />
     <Content Include="Background\12.jpg" />
     <Content Include="Background\173782.jpg" />
     <Content Include="Background\2.jpg" />
     <Content Include="Background\3.jpg" />
     <Content Include="Background\4.jpg" />
-    <Content Include="Court Images\2.jpg" />
-    <Content Include="Background\black-metal-grill-texture-x-textured-473647.jpg" />
-    <Content Include="Background\imageshg.jpg" />
     <Content Include="Background\index.jpg" />
-    <Content Include="Background\lines-grey-background_1053-300.jpg" />
     <Content Include="Background\player.png" />
-    <Content Include="Court Images\3.jpg" />
     <Content Include="DashboardPage.aspx" />
     <Content Include="EmpRegistration.aspx" />
     <Content Include="Global.asax" />
@@ -205,7 +200,9 @@
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\mittalbookings - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\mittalbookings - FTP1.pubxml" />
     <None Include="Properties\PublishProfiles\mittalbookings - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\mittalbookings - Web Deploy1.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -37,8 +37,8 @@ namespace Accelo_Booking
             {
                 customer_type = "Non-Member";
             }
-            /*try
-            //{
+            try
+            {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("insertCustomers", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -49,18 +49,12 @@ namespace Accelo_Booking
                 cmd.Parameters.AddWithValue("@User_type", userType);
                 cmd.Parameters.AddWithValue("@Password", txtConfirmPass.Text);
                 cmd.Parameters.AddWithValue("@Customer_type", customer_type);
-                cmd.ExecuteNonQuery();*/
-            try
-            {
-                SendEmail();
+                cmd.ExecuteNonQuery();
+                Response.Write("<script>alert('You have successfully registered');</script>");
+                Response.Redirect("Login.aspx");
+                //SendEmail();
+
             }
-            catch(SmtpException er)
-            {
-                Response.Write("<script>alert('" + er.Message + "');</script>");
-            }
-                //Response.Write("<script>alert('You have successfully registered');</script>");
-                //Response.Redirect("Login.aspx");
-            /*}
             catch (Exception err)
             {
                 Response.Write("<script>alert('" + err.Message + "');</script>");
@@ -68,7 +62,7 @@ namespace Accelo_Booking
             finally
             {
                 con.Close();
-            }*/
+            }
         }
 
         public void GenerateUsername()
@@ -117,7 +111,7 @@ namespace Accelo_Booking
         {
             MailMessage msg = new MailMessage();
             msg.To.Add(txtEmailComfirmation.Text);
-            msg.From = new MailAddress("mittalbooking@gmail.com");
+            msg.From = new MailAddress("makwelamasilofrans@gmail.com");
             msg.Subject = "Registration confirmation";
             msg.Body = "Hey " + txtLName.Text + "\n\nYou have successfully registered for booking court at Mittal Court Club.\n\nKind Regards,";
             SmtpClient smtp = new SmtpClient();
@@ -125,7 +119,7 @@ namespace Accelo_Booking
             smtp.Host = "smtp.gmail.com";
             smtp.Port = 587;
             smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new System.Net.NetworkCredential("mittalbooking@gmail.com", "@Mittaltest");
+            smtp.Credentials = new System.Net.NetworkCredential("makwelamasilofrans@gmail.com", "@Makwela98");
             smtp.EnableSsl = true;
             smtp.Send(msg);
         }

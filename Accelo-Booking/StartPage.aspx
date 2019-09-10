@@ -8,8 +8,8 @@
     <style type="text/css">
         .auto-style1 {
             position: absolute;
-            top: 163px;
-            left: 978px;
+            top: 33px;
+            left: 885px;
             z-index: 1;
             width: 473px;
             height: 474px;
@@ -44,8 +44,8 @@
             width: 808px;
             height: 404px;
             position: absolute;
-            top: 299px;
-            left: 39px;
+            top: 289px;
+            left: 34px;
             z-index: 1;
         }
         .auto-style16 {
@@ -110,11 +110,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style="background-image: url('Background/3.jpg'); background-repeat: inherit; " class="auto-style2">
+        <div style="background-image: url('Background/squash.jpg'); background-repeat: inherit; " class="auto-style2">
             <asp:ImageButton ID="btnSignUp" runat="server" ImageUrl="~/Icons/signup.png" OnClick="btnSignUp_Click" CssClass="auto-style4" />
             <asp:ImageButton ID="btnSignIn" runat="server" ImageUrl="~/Icons/Sign In.png" OnClick="btnSignIn_Click" CssClass="auto-style3" />
             <asp:Image ID="Image1" runat="server" CssClass="auto-style1" ImageUrl="~/Background/player.png" />
-            <asp:Panel ID="Panel1" runat="server" CssClass="auto-style5">
+            <asp:Panel ID="Panel1" runat="server" CssClass="auto-style5" BackImageUrl="~/Background/leather.jpg" BorderStyle="Solid" BorderColor="Black">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Calendar ID="DateOfBooking" runat="server" BackColor="#333333" BorderColor="Black" BorderStyle="Outset" BorderWidth="5px" CssClass="auto-style16" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="221px" NextPrevFormat="FullMonth" OnDayRender="DateOfBooking_DayRender" Width="426px">
                     <DayHeaderStyle BackColor="Black" Font-Bold="True" Font-Size="8pt" ForeColor="White" />

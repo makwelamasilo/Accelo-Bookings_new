@@ -21,8 +21,6 @@ namespace Accelo_Booking
             {
                 DateOfBooking.SelectedDate = DateTime.Now.Date;
             }
-            lblAvailability.Visible = true;
-            lblAvailability.Text = DateOfBooking.TodaysDate.ToShortDateString();
         }
 
         protected void btnSignIn_Click(object sender, ImageClickEventArgs e)

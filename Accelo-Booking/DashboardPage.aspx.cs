@@ -28,7 +28,7 @@ namespace Accelo_Booking
                 btnRegisterEmp.Visible = true;
             }
             GenerateBookingID();
-            lblUsername.Text = booking_id.ToString();
+            lblUsername.Text = username.ToString();
 
         }
 
