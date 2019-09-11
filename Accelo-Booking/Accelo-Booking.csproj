@@ -132,6 +132,7 @@
     <Content Include="DashboardPage.aspx" />
     <Content Include="EmpRegistration.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Icons\btnManageBookings.png" />
     <Content Include="Icons\btnOverview.png" />
     <Content Include="Icons\btnRegister.png" />
     <Content Include="Icons\cancelBooking.png" />

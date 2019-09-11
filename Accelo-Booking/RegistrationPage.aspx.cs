@@ -52,7 +52,7 @@ namespace Accelo_Booking
                 cmd.Parameters.AddWithValue("@Password", txtConfirmPass.Text);
                 cmd.Parameters.AddWithValue("@Customer_type", customer_type);
                 cmd.ExecuteNonQuery();
-                Response.Write("<script>alert('You have successfully registered');</script>");
+                
 
                 //SendEmail();
 
@@ -63,6 +63,7 @@ namespace Accelo_Booking
             }
             finally
             {
+                Response.Write("<script>alert('You have successfully registered');</script>");
                 con.Close();
             }
         }

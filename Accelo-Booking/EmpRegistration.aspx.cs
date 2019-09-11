@@ -18,14 +18,16 @@ namespace Accelo_Booking
         protected void Page_Load(object sender, EventArgs e)
         {
             con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\User\\source\\repos\\Accelo-Booking\\Accelo-Booking\\App_Data\\acceloDB.mdf;Integrated Security=True");
-
+            
         }
 
         protected void btnSignUp_Click(object sender, ImageClickEventArgs e)
         {
             GenerateUsername();
+            txtUsername.Text = username.ToString();
             try
             {
+
                 con.Open();
                 SqlCommand cmd = new SqlCommand("insertEmployee", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -38,8 +40,9 @@ namespace Accelo_Booking
                 cmd.Parameters.AddWithValue("@Employee_type", Role.SelectedValue.ToString());
                 cmd.Parameters.AddWithValue("@Shift", Shift.SelectedValue.ToString());
                 cmd.ExecuteNonQuery();
+                
                 //SendEmail();
-                Response.Write("<script>alert('You have successfully registered');</script>");
+
             }
             catch (Exception err)
             {
@@ -47,6 +50,8 @@ namespace Accelo_Booking
             }
             finally
             {
+                Response.Write("<script>alert('You have successfully registered');</script>");
+                btnLogin.Visible = true;
                 con.Close();
             }
 

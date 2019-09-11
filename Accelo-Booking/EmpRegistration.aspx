@@ -213,7 +213,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="auto-style1" style="background-image: url('Background/squash.jpg')">
+        <div class="auto-style1" style="background-image: url('Background/3.jpg')">
             <asp:Label ID="Label1" runat="server" CssClass="auto-style4" Font-Size="X-Large" ForeColor="White" Text="Last Name:"></asp:Label>
             <asp:Label ID="Label2" runat="server" CssClass="auto-style2" Font-Size="X-Large" ForeColor="White" Text="Email:"></asp:Label>
             <asp:Label ID="Label3" runat="server" CssClass="auto-style3" Font-Size="X-Large" ForeColor="White" Text="First Name:"></asp:Label>
@@ -248,7 +248,7 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="Shift" CssClass="auto-style50" ErrorMessage="*" Font-Size="X-Large" ForeColor="Red"></asp:RequiredFieldValidator>
             <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtEmail" ControlToValidate="txtConfirmEmail" CssClass="auto-style51" ErrorMessage="Email mismatch" Font-Size="Large" ForeColor="Red"></asp:CompareValidator>
             <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToCompare="txtPassword" ControlToValidate="txtConfirmPass" CssClass="auto-style49" ErrorMessage="Password mismatch" Font-Size="Large" ForeColor="Red"></asp:CompareValidator>
-            <asp:ImageButton ID="btnLogin" runat="server" CssClass="auto-style52" ImageUrl="~/Icons/Sign In.png" OnClick="btnLogin_Click" />
+            <asp:ImageButton ID="btnLogin" runat="server" CssClass="auto-style52" ImageUrl="~/Icons/Sign In.png" OnClick="btnLogin_Click" Visible="False" />
         </div>
     </form>
 </body>

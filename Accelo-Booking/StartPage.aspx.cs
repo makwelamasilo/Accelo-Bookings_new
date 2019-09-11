@@ -21,6 +21,7 @@ namespace Accelo_Booking
             {
                 DateOfBooking.SelectedDate = DateTime.Now.Date;
             }
+
         }
 
         protected void btnSignIn_Click(object sender, ImageClickEventArgs e)
@@ -56,11 +57,16 @@ namespace Accelo_Booking
 
         protected void DateOfBooking_DayRender(object sender, DayRenderEventArgs e)
         {
-
+            //RESTRICTING DATE SELECTION TO ONLY 2 WEEKS UPFRONT
+            if (e.Day.Date > DateTime.Now.AddDays(14))
+            {
+                e.Day.IsSelectable = false;
+            }
         }
 
         private void findAvailableCourts()
         {
+            //SEARCHING FOR AVAILABLE COURTS
             lblAvailability.Visible = true;
             courtsAvailable.Visible = true;
             try

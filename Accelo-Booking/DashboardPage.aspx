@@ -75,24 +75,24 @@
         }
         .auto-style12 {
             position: absolute;
-            top: 302px;
-            left: 133px;
+            top: 306px;
+            left: 129px;
             z-index: 1;
             width: 160px;
             height: 35px;
         }
         .auto-style13 {
             position: absolute;
-            top: 341px;
-            left: 29px;
+            top: 356px;
+            left: 28px;
             z-index: 1;
         }
         .auto-style15 {
             width: 422px;
             height: 210px;
             position: absolute;
-            top: 370px;
-            left: 19px;
+            top: 384px;
+            left: 21px;
             z-index: 1;
         }
         .auto-style16 {
@@ -101,8 +101,8 @@
         }
         .auto-style20 {
             position: absolute;
-            top: 592px;
-            left: 185px;
+            top: 606px;
+            left: 186px;
             z-index: 1;
             width: 98px;
             height: 32px;
@@ -158,7 +158,7 @@
                     <asp:Image ID="Image1" runat="server" CssClass="auto-style26" ImageUrl="~/Icons/Deafult-Profile-Pitcher.png" />
                 </asp:Panel>
                 <asp:ImageButton ID="btnMakeBooking" runat="server" CssClass="auto-style5" ImageUrl="~/Icons/MakeBooking.png" OnClick="btnMakeBooking_Click" style="z-index: 2" />
-                <asp:ImageButton ID="btnCancelBooking" runat="server" CssClass="auto-style6" ImageUrl="~/Icons/cancelBooking.png" OnClick="btnCancelBooking_Click" style="z-index: 2" />
+                <asp:ImageButton ID="btnCancelBooking" runat="server" CssClass="auto-style6" ImageUrl="~/Icons/btnManageBookings.png" OnClick="btnCancelBooking_Click" style="z-index: 2" />
                 <asp:ImageButton ID="btnOverview" runat="server" CssClass="auto-style8" ImageUrl="~/Icons/btnOverview.png" OnClick="btnOverview_Click" />
                 <asp:ImageButton ID="btnRegisterEmp" runat="server" CssClass="auto-style24" ImageUrl="~/Icons/btnRegister.png" OnClick="btnRegisterEmp_Click" Visible="False" />
                 <asp:HyperLink ID="HyperLink1" runat="server" CssClass="auto-style25" Font-Bold="True" Font-Size="Large" ForeColor="White" NavigateUrl="~/Login.aspx">Log out</asp:HyperLink>
@@ -173,7 +173,7 @@
             <asp:Panel ID="Panel4" runat="server" BackImageUrl="~/Background/3.jpg" CssClass="auto-style10">
                 <asp:MultiView ID="MultiView1" runat="server">
                     <asp:View ID="View1" runat="server">
-                        <asp:Calendar ID="DateOfBooking" runat="server" BackColor="#333333" BorderColor="Black" BorderStyle="Outset" BorderWidth="5px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="221px" NextPrevFormat="FullMonth" Width="426px" CssClass="auto-style16" OnDayRender="DateOfBooking_DayRender">
+                        <asp:Calendar ID="DateOfBooking" runat="server" BackColor="#333333" BorderColor="Black" BorderStyle="Outset" BorderWidth="5px" CssClass="auto-style16" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="221px" NextPrevFormat="FullMonth" OnDayRender="DateOfBooking_DayRender" Width="426px">
                             <DayHeaderStyle BackColor="Black" Font-Bold="True" Font-Size="8pt" ForeColor="White" />
                             <DayStyle BackColor="#333333" ForeColor="White" />
                             <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#999999" VerticalAlign="Bottom" />
@@ -257,8 +257,8 @@
                         <br />
                         <asp:Label ID="lblAvailability" runat="server" CssClass="auto-style13" Font-Bold="True" ForeColor="White" Text="Select Court:" Visible="False"></asp:Label>
                         <br />
-                        <asp:Button ID="btnCheckCourtAvailability" runat="server" BackColor="#333333" BorderColor="Black" BorderStyle="Solid" Font-Bold="True" ForeColor="White" OnClick="btnCheckCourtAvailability_Click" Text="Check Available" CssClass="auto-style12" />
-                        <asp:RadioButtonList ID="AvailableCourts" runat="server" BackColor="#333333" BorderColor="Black" BorderStyle="Solid" ForeColor="White" CssClass="auto-style15" Visible="False">
+                        <asp:Button ID="btnCheckCourtAvailability" runat="server" BackColor="#333333" BorderColor="Black" BorderStyle="Solid" CssClass="auto-style12" Font-Bold="True" ForeColor="White" OnClick="btnCheckCourtAvailability_Click" Text="Check Available" />
+                        <asp:RadioButtonList ID="AvailableCourts" runat="server" BackColor="#333333" BorderColor="Black" BorderStyle="Solid" CssClass="auto-style15" ForeColor="White" Visible="False">
                             <asp:ListItem>Court 1</asp:ListItem>
                             <asp:ListItem>Court 2</asp:ListItem>
                             <asp:ListItem>Court 3</asp:ListItem>
@@ -283,13 +283,17 @@
                         <br />
                         <br />
                         <br />
-                        <asp:Button ID="btnBook" runat="server" CssClass="auto-style20" OnClick="btnBook_Click" Text="BOOK" BackColor="#333333" BorderColor="Black" BorderStyle="Solid" Font-Bold="True" ForeColor="White" />
+                        <br />
+                        <br />
+                        <asp:Button ID="btnBook" runat="server" BackColor="#333333" BorderColor="Black" BorderStyle="Solid" CssClass="auto-style20" Font-Bold="True" ForeColor="White" OnClick="btnBook_Click" Text="BOOK" Visible="False" />
                         <br />
                         <br />
                     </asp:View>
+                    <br />
+                    <br />
                     <asp:View ID="View2" runat="server">
                         <asp:Panel ID="Panel5" runat="server">
-                            <asp:GridView ID="GridView2" runat="server" ForeColor="Black" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" BackColor="White" GridLines="Horizontal" AutoGenerateEditButton="True">
+                            <asp:GridView ID="deleteView" runat="server" AutoGenerateEditButton="True" BackColor="White" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
                                 <Columns>
                                     <asp:TemplateField>
                                         <ItemTemplate>
@@ -311,15 +315,20 @@
                                 <SortedDescendingHeaderStyle BackColor="#242121" />
                             </asp:GridView>
                             <br />
-                            <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click1" Text="Cancel Booking" BackColor="#333333" BorderColor="Black" BorderStyle="Solid" ForeColor="White" />
+                            <br />
+                            <asp:DropDownList ID="cmbDeleteBooking" runat="server">
+                            </asp:DropDownList>
+                            <br />
+                            <br />
+                            <asp:Button ID="btnCancel" runat="server" BackColor="#333333" BorderColor="Black" BorderStyle="Solid" ForeColor="White" OnClick="btnCancel_Click1" Text="Cancel Booking" />
                             <br />
                         </asp:Panel>
                     </asp:View>
+                    <br />
                     <asp:View ID="View3" runat="server">
                         <asp:GridView ID="viewBookings" runat="server" BackColor="White" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" GridLines="Horizontal">
                             <Columns>
-                                <asp:TemplateField>
-                                </asp:TemplateField>
+                                <asp:TemplateField></asp:TemplateField>
                             </Columns>
                             <EmptyDataTemplate>
                                 <asp:CheckBox ID="CheckBox2" runat="server" />
@@ -342,6 +351,9 @@
                         <br />
                         <br />
                         <asp:Button ID="btnCheckIn" runat="server" BackColor="#333333" BorderColor="Black" BorderStyle="Solid" Font-Bold="True" ForeColor="White" OnClick="btnCheckIn_Click" Text="CHECKED IN" />
+                    </asp:View>
+                    <asp:View ID="View4" runat="server">
+                        <asp:Label ID="Label6" runat="server" Font-Bold="True" Font-Names="Alien Encounters" Font-Size="XX-Large" ForeColor="#CCCCCC" Text="WELCOME TO THE COURTS BOOKING SYSTEM FOR MITTAL SQUASH COURTS CLUB"></asp:Label>
                     </asp:View>
                 </asp:MultiView>
             </asp:Panel>
