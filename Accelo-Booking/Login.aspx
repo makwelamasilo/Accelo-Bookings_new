@@ -100,7 +100,7 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtUsername" CssClass="auto-style17" ErrorMessage="*" Font-Size="X-Large" ForeColor="Red"></asp:RequiredFieldValidator>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPassword" CssClass="auto-style16" ErrorMessage="*" Font-Size="X-Large" ForeColor="Red"></asp:RequiredFieldValidator>
             <asp:Label ID="lblWrongCredentials" runat="server" CssClass="auto-style18" Font-Bold="False" Font-Size="Large" ForeColor="Red" Text="Wrong Username or password" Visible="False"></asp:Label>
-            <asp:Panel ID="Panel1" runat="server" CssClass="auto-style19">
+            <asp:Panel ID="Panel1" runat="server" CssClass="auto-style19" BackImageUrl="~/Background/leather.jpg">
             </asp:Panel>
         </div>
     </form>

@@ -51,7 +51,7 @@ namespace Accelo_Booking
 
             findAvailableCourts();
             courtsAvailable.Visible = true;
-            lblInfo.Text = "Dear Customer"+" \n\n"+"Above are the available courts for the time slots you specified. Please note that if you wish to make a booking, you have to be registered first.";
+            lblInfo.Text = "Dear Customer,"+" \n\n"+" Above are the available courts for the time slots you specified. Please note that if you wish to make a booking, you have to be registered first.";
         }
 
         protected void DateOfBooking_DayRender(object sender, DayRenderEventArgs e)
@@ -88,9 +88,9 @@ namespace Accelo_Booking
                 }
                 else
                 {
-                    lblAvailability.Text = "Available Tables are Given Below";
+                    lblAvailability.Text = "Available Courts are Given Below";
                 }
-                Response.Write("<script>alert('There are available');</script>");
+                Response.Write("<script>alert('There are available courts');</script>");
             }
             catch (Exception e)
             {

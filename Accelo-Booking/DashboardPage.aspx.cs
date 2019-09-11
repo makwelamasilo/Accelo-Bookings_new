@@ -18,6 +18,8 @@ namespace Accelo_Booking
         static String username;
         protected void Page_Load(object sender, EventArgs e)
         {
+            GridView2.DataBind();
+            viewBookings.DataBind();
             if (!IsPostBack)
             {
                 DateOfBooking.SelectedDate = DateTime.Now.Date;
@@ -190,7 +192,7 @@ namespace Accelo_Booking
                 cmd.ExecuteNonQuery();
                 //Feedback.Visible = true;
                 //string feedback = ("Hey " + username + ",\n\n" + "This is to comfirm that you have successfully booked " + AvailableCourts.Text + "For " + DateOfBooking.SelectedDate.ToLongDateString() + "From " + StartTime.Text + "to " + EndTime + ". Your booking reference is " + booking_id.ToString()).ToString();
-                Response.Write("<script>alert('Your booking was successful');</script>");
+                Response.Write("<script>alert('You have successfully made your booking. Please note that failure to honor your booking will result in a fine');</script>");
                 con.Close();
             }
             catch(Exception err)
@@ -211,11 +213,21 @@ namespace Accelo_Booking
                 int booking_ID = Convert.ToInt32(row.Cells[1].Text);
                 if(box.Checked)
                 {
-                    con.Open();
-                    string query = "DELETE FROM Booking WHERE BOOKING_ID=" + booking_ID;
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
+                    try
+                    {
+                        con.Open();
+                        string query = "DELETE FROM Booking WHERE BOOKING_ID=" + booking_ID;
+                        SqlCommand cmd = new SqlCommand(query, con);
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch(Exception error)
+                    {
+                        Response.Write("<script>alert('" + error.Message + "');</script>");
+                    }
+                    finally
+                    {
+                        con.Close();
+                    }
                 }
                 GridView2.DataBind();
             }
@@ -247,7 +259,13 @@ namespace Accelo_Booking
                 SqlDataReader reader = cmd.ExecuteReader();
                 viewBookings.DataSource = reader;
                 viewBookings.DataBind();
-                con.Close();
+                reader.Close();
+                SqlDataReader reader1 = cmd.ExecuteReader();
+                cmbBookingId.DataSource = reader1;
+                cmbBookingId.DataTextField = "BOOKING_ID";
+                cmbBookingId.DataValueField = "BOOKING_ID";
+                cmbBookingId.DataBind();
+                //con.Close();
             }
             catch(Exception e)
             {
@@ -261,7 +279,27 @@ namespace Accelo_Booking
 
         protected void btnCheckIn_Click(object sender, EventArgs e)
         {
-
+            int id = Convert.ToInt32(cmbBookingId.SelectedValue.ToString());
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("updateCheckIn", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Booking_id", id);
+                //SqlDataAdapter adapter = new SqlDataAdapter();
+                cmd.ExecuteNonQuery();
+                Response.Write("<script>alert('Successfully checked in');</script>");
+            }
+            catch (Exception er)
+            {
+                Response.Write("<script>alert('" + er.Message + "');</script>");
+            }
+            finally
+            {
+                con.Close();
+            }
         }
+
+
     }
 }

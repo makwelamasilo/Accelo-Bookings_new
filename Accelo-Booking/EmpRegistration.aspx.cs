@@ -39,8 +39,7 @@ namespace Accelo_Booking
                 cmd.Parameters.AddWithValue("@Shift", Shift.SelectedValue.ToString());
                 cmd.ExecuteNonQuery();
                 //SendEmail();
-                //Response.Write("<script>alert('You have successfully registered');</script>");
-                Response.Redirect("Login.aspx");
+                Response.Write("<script>alert('You have successfully registered');</script>");
             }
             catch (Exception err)
             {
@@ -101,6 +100,11 @@ namespace Accelo_Booking
             {
                 con.Close();
             }
+        }
+
+        protected void btnLogin_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("Login.aspx");
         }
     }
 }

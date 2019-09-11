@@ -18,6 +18,7 @@ namespace Accelo_Booking
         string username;
         string userType;
         SqlConnection con;
+        string pass;
         protected void Page_Load(object sender, EventArgs e)
         {
             con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\User\\source\\repos\\Accelo-Booking\\Accelo-Booking\\App_Data\\acceloDB.mdf;Integrated Security=True");
@@ -28,6 +29,7 @@ namespace Accelo_Booking
 
         protected void btnSignUp_Click(object sender, ImageClickEventArgs e)
         {
+            btnLogin.Visible = true;
             string customer_type;
             if(clubMember.Checked)
             {
@@ -51,7 +53,7 @@ namespace Accelo_Booking
                 cmd.Parameters.AddWithValue("@Customer_type", customer_type);
                 cmd.ExecuteNonQuery();
                 Response.Write("<script>alert('You have successfully registered');</script>");
-                Response.Redirect("Login.aspx");
+
                 //SendEmail();
 
             }
@@ -122,6 +124,11 @@ namespace Accelo_Booking
             smtp.Credentials = new System.Net.NetworkCredential("makwelamasilofrans@gmail.com", "@Makwela98");
             smtp.EnableSsl = true;
             smtp.Send(msg);
+        }
+
+        protected void btnLogin_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("Login.aspx");
         }
     }
 }

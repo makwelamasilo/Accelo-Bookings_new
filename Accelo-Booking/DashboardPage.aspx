@@ -104,6 +104,8 @@
             top: 592px;
             left: 185px;
             z-index: 1;
+            width: 98px;
+            height: 32px;
         }
         .auto-style21 {
             position: absolute;
@@ -317,9 +319,6 @@
                         <asp:GridView ID="viewBookings" runat="server" BackColor="White" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" GridLines="Horizontal">
                             <Columns>
                                 <asp:TemplateField>
-                                    <ItemTemplate>
-                                        <asp:CheckBox ID="checkSelect0" runat="server" />
-                                    </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
                             <EmptyDataTemplate>
@@ -335,6 +334,12 @@
                             <SortedDescendingCellStyle BackColor="#E5E5E5" />
                             <SortedDescendingHeaderStyle BackColor="#275353" />
                         </asp:GridView>
+                        <br />
+                        <asp:Label ID="Label5" runat="server" Font-Bold="True" Text="Select the booking to check in below:"></asp:Label>
+                        <br />
+                        <asp:DropDownList ID="cmbBookingId" runat="server" BackColor="#333333" ForeColor="White">
+                        </asp:DropDownList>
+                        <br />
                         <br />
                         <asp:Button ID="btnCheckIn" runat="server" BackColor="#333333" BorderColor="Black" BorderStyle="Solid" Font-Bold="True" ForeColor="White" OnClick="btnCheckIn_Click" Text="CHECKED IN" />
                     </asp:View>

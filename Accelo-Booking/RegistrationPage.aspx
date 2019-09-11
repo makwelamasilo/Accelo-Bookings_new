@@ -81,11 +81,11 @@
         }
         .auto-style14 {
             position: absolute;
-            top: 610px;
-            left: 666px;
+            top: 619px;
+            left: 559px;
             z-index: 1;
-            width: 348px;
-            height: 83px;
+            width: 249px;
+            height: 61px;
         }
         .auto-style16 {
             position: absolute;
@@ -178,6 +178,14 @@
             left: 552px;
             z-index: 1;
         }
+        .auto-style32 {
+            position: absolute;
+            top: 621px;
+            left: 889px;
+            z-index: 1;
+            width: 249px;
+            height: 61px;
+        }
     </style>
 </head>
 <body style="height: 776px; margin-left: 0px; margin-top: 1px; width: 1594px; margin-bottom: 3px;">
@@ -207,6 +215,7 @@
             <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToCompare="txtEmail" ControlToValidate="txtEmailComfirmation" CssClass="auto-style29" ErrorMessage="Email Mismatch" Font-Size="Large" ForeColor="Red"></asp:CompareValidator>
             <asp:Label ID="Label8" runat="server" CssClass="auto-style31" Font-Size="Large" ForeColor="White" Text="Please use this username for future logins:"></asp:Label>
             <asp:TextBox ID="txtUsername" runat="server" BorderStyle="None" CssClass="auto-style30" Enabled="False"></asp:TextBox>
+            <asp:ImageButton ID="btnLogin" runat="server" CssClass="auto-style32" ImageUrl="~/Icons/Sign In.png" OnClick="btnLogin_Click" Visible="False" />
         </div>
     </form>
 </body>
